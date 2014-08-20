@@ -49,7 +49,6 @@ public class MovingScriptTest : MonoBehaviour {
 		chController.Move(moveDirection);
 
 		lastYPosition = primeHand.PalmPosition.y;
-		//ajdsbfdfasjbfajkf
 	}
 
 	private Hand frontMostHand(){

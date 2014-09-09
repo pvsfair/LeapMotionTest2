@@ -36,14 +36,14 @@ public class MovingScriptTest : MonoBehaviour {
 		Hand primeHand = frontMostHand();
 		if(chController.isGrounded){
 			if(primeHand.PalmPosition.x > palmLimit){
-				moveDirection.x = moveSpeed * Time.deltaTime;	
+				moveDirection.x = moveSpeed * Time.deltaTime;
 			} else if(primeHand.PalmPosition.x < -palmLimit){
 				moveDirection.x = -moveSpeed * Time.deltaTime;
 			} else moveDirection.x = 0;
-			if(primeHand.PalmPosition.y - lastYPosition > 12) moveDirection.y = jumpSpeed;
+			if(primeHand.PalmPosition.y - lastYPosition < 50 && primeHand.PalmPosition.y - lastYPosition > 12) moveDirection.y = jumpSpeed;
 		}
 
-		toGui = "X Hand Position: " + primeHand.PalmPosition;
+		toGui = "    pos: " + primeHand.PalmPosition.y - lastYPosition);
 		moveDirection.y -= Gravity * Time.deltaTime;
 
 		chController.Move(moveDirection);
